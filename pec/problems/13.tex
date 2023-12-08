@@ -1,0 +1,184 @@
+\question En el espacio vectorial $\mathbb{R}^n$ se consideran los subespacios
+
+\begin{equation*}
+    E = \{ (x_1, \ldots, x_n) : \sum\limits_{x=i}\limits^{n} i \cdot x_i = 0 \}, \hspace{8pt} F = \{(t,t, \ldots, t), t \in \mathbb{R}\}
+\end{equation*}
+
+\begin{itemize}[$\bullet$]
+    \item Calcular sus dimensiones y escribir bases respectivas.
+    \item Probar que $\mathbb{R}^n = E \oplus F$.
+    \item Escribir explícitamente un vector $(a_1, \ldots, a_n) \in \mathbb{R}^n$ como suma de vectores $e \in E$ y $f \in F$.
+    \item Escribir bases de los espacios vectoriales cocientes:
+    \begin{equation*}
+        \mathbb{R}^n/E,\;\text{y}\;\mathbb{R}^n/F
+    \end{equation*}
+\end{itemize}
+
+\vspace{20px}
+\textit{Solución:}
+
+
+\begin{itemize}[$\bullet$]
+
+    \item El subespacio vectorial $E$ se puede reescribir como una ecuación implícita:
+
+    \begin{equation*}
+        x_1 + 2x_2 + \ldots + nx_n = 0
+    \end{equation*}
+
+    $\mathbb{R}^n$ tiene dimensión $n$, y el subespacio $E$ está definido por una ecuación implícita, por lo que $\dim(E) = n - 1$.\\
+
+    Si resolvemos el sistema anterior, calcularemos las ecuaciones paramétricas de $E$, que dependerán de $n-1$ parámetros,
+    y de ahí obtendremos una base.\\
+
+    Asignamos valores a las incógnitas secundarias:
+    \begin{equation*}
+        x_i = \alpha_i\hspace{12pt}  \text{con}\; \alpha_i \in \mathbb{R} \hspace{8pt} \text{y} \hspace{8pt} 2 \leq i \leq n
+    \end{equation*}
+
+    Despejamos $x_1$:
+    \begin{equation*}
+        x_1 = -2\alpha_2 - 3\alpha_3 - \ldots - n\alpha_n
+    \end{equation*}
+
+    Expresamos las ecuaciones paramétricas de $E$ como:
+    \begin{flalign*}
+    (x_1, x_2, x_3, x_4, \ldots, x_{n-1}, x_n)
+        = \\
+        &\alpha_2(-2, 1, 0, 0, \ldots, 0, 0) + \alpha_3(-3, 0, 1, 0, \ldots, 0, 0) +
+        \ldots + \\
+        &\alpha_n(-n, 0, 0, 0, \ldots, 0, 1)
+    \end{flalign*}
+
+    Para $e_1$ asignamos $a_2 = 1$ y $a_3 = \ldots = a_n = 0$. Operando de manera similar con el resto de parámetros, obtenemos una base de $E$:
+
+    \begin{equation*}
+        \{e_1 = (-2, 1, 0, 0, \ldots, 0, 0), e_2 = (-3, 0, 1, 0, \ldots, 0, 0),
+        \ldots,
+        e_{n-1} = (-n, 0, 0, 0, \ldots, 0, 1)\}
+    \end{equation*}
+
+    \vspace{20px}
+    Para el subespacio $F$ es trivial decir que $\dim(F) = 1$ y que una base se calcula asignando $t = 1$:
+    \begin{equation*}
+        \{f_1 = (1, \ldots, 1) \}
+    \end{equation*}
+
+    \item $\mathbb{R}^n = E \oplus F$ se cumple si:
+    \begin{equation*}
+        \mathbb{R}^n = E + F \hspace{12pt} \text{y} \hspace{12pt} E \cap F = \{0\}
+    \end{equation*}
+
+    O equivalentemente, si:
+    \begin{equation*}
+        \dim(E) + \dim(F) = \dim(E+F) = \dim(\mathbb{R}^n ) = n
+    \end{equation*}
+
+    Hemos calculado anteriormente que $\dim(E) = n - 1$ y $\dim(F) = 1$, por lo que solo queda demostrar que $\dim(E + F) = n$,
+    o lo que es lo mismo,
+    que los vectores que componen las bases de los dos subespacios forman un sistema linealmente independiente.\\
+
+    La manera que elegimos para demostrarlo es calculando el determinante de la matriz del sistema por inducción,
+    y demostrando que es distinto de cero. La matriz $A_n$ del sistema es:
+
+    \begin{equation*}
+        A_n =
+        \begin{pmatrix}
+            1      & 1      & 1      & \ldots & 1      \\
+            -2     & 1      & 0      & \ldots & 0      \\
+            -3     & 0      & 1      & \ldots & 0      \\
+            \vdots & \vdots & \vdots & \ddots & \vdots \\
+            -n     & 0      & 0      & \ldots & 1
+        \end{pmatrix}
+    \end{equation*}
+
+    Para $n = 2$ tenemos:
+
+    \begin{equation*}
+        \det(A_2) =
+        \begin{vmatrix}
+            1  & 1 \\
+            -2 & 1
+        \end{vmatrix} = 1 - (-2) = 3
+    \end{equation*}
+
+    por lo que el resultado $\det(A_2) \neq 0 $ es cierto. Suponemos que es cierto para $n-1$ y lo demostramos para $n$.
+
+    \begin{equation*}
+        \det(A_n) =
+        \begin{vmatrix}
+            1      & 1      & 1      & \ldots & 1      \\
+            -2     & 1      & 0      & \ldots & 0      \\
+            -3     & 0      & 1      & \ldots & 0      \\
+            \vdots & \vdots & \vdots & \ddots & \vdots \\
+            -n     & 0      & 0      & \ldots & 1
+        \end{vmatrix}
+        = (-1)^{(n+1)}(-n)\det(A_{n1}) + \det(A_{n-1})
+
+    \end{equation*}
+
+    donde hemos hecho uso de la fórmula de Laplace del determinante por la última fila, y donde $A_{n1}$ denota a la submatriz de $A_n$
+    que se obtiene eliminando la fila $n$ y la columna $1$.\\
+
+    Desarrollamos este determinante, utilizando en esta ocasión
+    la fórmula de Laplace del determinante por la última columna:
+
+    \begin{equation*}
+        \det(A_{n1}) =
+        \begin{vmatrix}
+            1      & 1      & \ldots & 1      & 1      \\
+            1      & 0      & \ldots & 0      & 0      \\
+            0      & 1      & \ldots & 0      & 0      \\
+            \vdots & \vdots & \ddots & \vdots & \vdots \\
+            0      & 0      & \ldots & 1      & 0
+        \end{vmatrix}
+        = (-1)^{(n-1)+1}\det(I_{n-1}) = (-1)^{n}
+        
+    \end{equation*}
+
+    Sustituyendo el valor calculado en la fórmula anterior:
+
+    \begin{equation*}
+        \begin{split}
+            \det(A_n)  & = (-1)^{(n+1)}(-n)(-1)^{n} + \det(A_{n-1}) \\
+            & = (-1)^{(n+1)}(-1)^{n-1}n + \det(A_{n-1}) \\
+            & = (-1)^{2n}n + \det(A_{n-1}) \\
+            & = n + \det(A_{n-1})
+        \end{split}
+    \end{equation*}
+
+    Como $n \in \mathbb{N}$ y $A_{2} = 3$, hemos demostrado que el determinante es distinto de cero para cualquier orden de la matriz
+    del sistema lineal, y por tanto, que los vectores de las bases de los subespacios $E$ y $F$ son linealmente independientes.
+
+    \vspace{20px}
+    \item Utilizando las bases de los subespacios calculadas en el apartado 1, podemos escribir cualquier vector $a \in \mathbb{R}^n$ como:
+
+    \begin{equation*}
+        \begin{split}
+        (a_1, a_2, a_3, \ldots, a_n)
+            & = f + e \\
+            & = \alpha_1 f_1 + (\alpha_2 e_1 + \alpha_3 e_2 + \ldots \alpha_n e_{n-1} ) \\
+            & = (\alpha_1, \alpha_1, \alpha_1, \ldots, \alpha_1) +
+            (-2\alpha_2-3\alpha_3 - \ldots -n\alpha_n, \alpha_2, \alpha_3, \ldots, \alpha_n)
+            \\
+        \end{split}
+    \end{equation*}
+
+
+    \vspace{20px}
+    \item
+    Según lo demostrado en los apartados 1 y 2 de este problema, la base del subespacio vectorial $F$ extiende la base del subespacio vectorial $E$ para formar
+    una base de $\mathbb{R}^n$. Por tanto, una base $\mathcal{B}$ de $\mathbb{R}^n/E$ es:
+
+    \begin{equation*}
+        \mathcal{B} = \{ f_1 + L(e_1, e_2, \ldots, e_{n-1}) \}
+
+    \end{equation*}
+
+    De manera similar, calculamos una base $\mathcal{B'}$ para el espacio cociente $\mathbb{R}^n/F$:
+
+    \begin{equation*}
+        \mathcal{B'} = \{ e_1 + L(f_1) , e_2 + L(f_1) , \ldots, e_{n-1} + L(f_1) \}
+    \end{equation*}
+\end{itemize}
+

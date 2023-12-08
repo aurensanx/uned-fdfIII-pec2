@@ -1,0 +1,201 @@
+\question Consideremos $\mathbb{R}_3[x]$ el espacio vectorial de los polinomios de grado menor o igual que 3. Sean
+\begin{equation*}
+    x_1 < x_2 < x_3 < x_4
+\end{equation*}
+cuatro valores reales fijos. Definimos las formas lineales
+\begin{equation*}
+    w_i : \mathbb{R}_3[x] \mapsto \mathbb{R}, 1 \leq i \leq 4
+\end{equation*}
+por
+
+\begin{equation*}
+    w_1(p(x)) = p(x_1),\; w_2(p(x)) = p(x_2),\; w_3(p(x)) = p(x_3),\; w_4(p(x)) = p(x_4)\\
+\end{equation*}
+
+donde $p(x) \in \mathbb{R}_3[x]$.
+
+\begin{itemize}[$\bullet$]
+    \item Probar que $w_1, w_2, w_3, w_4$ son elementos linealmente independientes del espacio dual $\mathbb{R}_3[x]^*$.
+    \item Hallar la base $\mathcal{B} = \{p_1(x), p_2(x), p_3(x), p_4(x)\}$ de $\mathbb{R}_3[x]$ cuya base dual respectiva sea $\{w_1, w_2, w_3, w_4\}$.
+\end{itemize}
+
+\vspace{20px}
+\textit{Solución:}
+
+\newcommand\myvectors{$w_1, w_2, w_3, w_4$ }
+
+\begin{itemize}[$\bullet$]
+    \item
+
+    Los elementos \myvectors pertenecen al espacio dual $\mathbb{R}_3[x]^*$ por ser 4 formas lineales de $\mathbb{R}_3[x]$. Tenemos que demostrar que son linealmente independientes.\\
+
+    Esto equivale a demostrar que \myvectors son elementos linealmente independientes del espacio vectorial $\mathcal{M}_{1\times4}(\mathbb{R})$, porque la aplicación del espacio vectorial $\mathcal{L}(\mathbb{R}_3[x], \mathbb{R}) \longrightarrow \mathcal{M}_{1\times4}(\mathbb{R})$ que a cada forma lineal le asocia su
+    matriz relativa a las bases canónicas es un isomorfismo de espacios vectoriales.\\
+
+    Las matrices de las 4 aplicaciones son:
+    $\mathcal{M}(w_1) =
+    \begin{pmatrix}
+        1 & x_1 & x_1^2 & x_1^3
+    \end{pmatrix}$,
+    $\mathcal{M}(w_2) =
+    \begin{pmatrix}
+        1 & x_2 & x_2^2 & x_2^3
+    \end{pmatrix}$,
+    $\mathcal{M}(w_3) =
+    \begin{pmatrix}
+        1 & x_3 & x_3^2 & x_3^3
+    \end{pmatrix}$ y
+    $\mathcal{M}(w_4) =
+    \begin{pmatrix}
+        1 & x_4 & x_4^2 & x_4^3
+    \end{pmatrix}$.\\
+
+    Calculamos el determinante de este sistema para comprobar que es distinto de $0$, y por tanto, sus elementos son linealmente independientes. Escribimos la matriz del sistema:
+
+    \begin{equation*}
+        A = \begin{pmatrix}
+                1 & x_1 & x_1^2 & x_1^3 \\[6pt]
+                1 & x_2 & x_2^2 & x_2^3 \\[6pt]
+                1 & x_3 & x_3^2 & x_3^3 \\[6pt]
+                1 & x_4 & x_4^2 & x_4^3
+        \end{pmatrix}
+    \end{equation*}\\
+
+    Nos damos cuenta de que el determinante de la traspuesta de esta matriz (y de la propia matriz) es el determinante de Vandermonde, de fórmula:
+
+    \begin{equation*}
+        \Delta(x_1, x_2, x_3, x_4) = \prod\limits_{1\leq i < j \leq 4} (x_j - x_i)
+    \end{equation*}
+
+    y a su vez nos damos cuenta de que este determinante es distinto de $0$ porque $x_1 < x_2 < x_3 < x_4$, y de allí $x_i \neq x_j$ para $1\leq i < j \leq 4$.\\
+
+    No obstante, procedemos a calcular el determinante. Operamos con la matriz traspuesta $A^t$ por simplicidad.\\
+
+    Primero, aplicamos unas operaciones elementales de filas para hacer que las entradas debajo de la entrada $(1, 1)$ sean iguales a 0:
+
+    \begin{equation*}
+        A^t
+        \xrightarrow[f_4 \longrightarrow f_4 - x_1 f_3]{}\hspace{8pt}
+        \xrightarrow[f_3 \longrightarrow f_3 - x_1 f_2]{}\hspace{8pt}
+        \xrightarrow[f_2 \longrightarrow f_2 - x_1 f_1]{}\hspace{8pt}
+        B
+    \end{equation*}
+
+    \begin{equation*}
+        B
+        =
+        \begin{pmatrix}
+            1 & 1                 & 1                 & 1     \\[6pt]
+            0 & x_2 - x_1         & x_3 - x_1         & x_4 - x_1   \\[6pt]
+            0 & x_2^2 - x_2 x_1   & x_3^2 - x_3 x_1   & x_4^2 - x_4 x_1 \\[6pt]
+            0 & x_2^3 - x_2^2 x_1 & x_3^3 - x_3^2 x_1 & x_4^3 - x_4^2 x_1
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            1 & 1                & 1                 & 1     \\[6pt]
+            0 & x_2 - x_1        & x_3 - x_1         & x_4 - x_1   \\[6pt]
+            0 & x_2 (x_2 - x_1)  & x_3 (x_3 - x_1)   & x_4 (x_4 - x_1 ) \\[6pt]
+            0 & x_2^2  (x_2 - x_1) & x_3^2 (x_3 - x_1) & x_4^2 (x_4 - x_1 )
+        \end{pmatrix}
+    \end{equation*}\\
+
+    Desarrollando el determinante por la primera columna y sacando los factores comunes del determinante, obtenemos:
+
+    \begin{equation*}
+        det(B)
+        =
+        (x_2 - x_1)(x_3 - x_1)(x_4 - x_1)
+        \begin{vmatrix}
+            1     & 1     & 1   \\[6pt]
+            x_2   & x_3   & x_4 \\[6pt]
+            x_2^2 & x_3^2 & x_4^2
+        \end{vmatrix}
+    \end{equation*}\\
+
+    Operando de manera similar con el determinante resultante, llegamos al resultado:
+
+    \begin{equation*}
+        det(B)
+        =
+        (x_2 - x_1)(x_3 - x_1)(x_4 - x_1)(x_3 - x_2)(x_4 - x_2)(x_4 - x_3)
+    \end{equation*}
+
+    que coincide con la fórmula de Vandermonde anterior. Por tanto, hemos demostrado que $w_1, w_2, w_3, w_4$ son elementos linealmente independientes.
+
+
+    \vspace{20px}
+    \item La matriz $A$ de las formas lineales del punto anterior nos sirve para calcular la base $\mathcal{B}$.\\
+
+    Por definición de base dual, tenemos el sistema
+
+    \begin{equation*}
+        \begin{pmatrix}
+            1 & x_1 & x_1^2 & x_1^3 \\[6pt]
+            1 & x_2 & x_2^2 & x_2^3 \\[6pt]
+            1 & x_3 & x_3^2 & x_3^3 \\[6pt]
+            1 & x_4 & x_4^2 & x_4^3
+        \end{pmatrix}
+        \left( \begin{array}{c|c|c|c}
+                   p_1(x) & p_2(x) & p_3(x) & p_3(x) \\
+        \end{array}\right)   = I_4
+    \end{equation*}
+
+    donde las columnas $p_i(x)$ son las coordenadas de $p_i(x)$ respecto a la base canónica.\\
+
+    Si calculamos $A^{-1}$, estaremos calculando directamente la base $\mathcal{B}$, cuyos vectores tendrán por coordenadas las columnas de $A^{-1}$.\\
+
+    Para calcular esta inversa, se puede seguir un procedimiento similar al del apartado anterior, y mediante operaciones elementales por filas o por columnas
+    llegar a la matriz inversa.\\
+
+    Nosotros optamos por dar la solución en función del determinante de Vanderdome calculado en el punto anterior y del adjunto o cofactor del elemento $\alpha_{ij}$ de $A$:
+
+    \begin{equation*}
+        p_i(x) = \frac{1}{\Delta(x_1, x_2, x_3, x_4)}
+        \begin{pmatrix}
+            \alpha_{i1} & \alpha_{i2} & \alpha_{i3} & \alpha_{i4}
+        \end{pmatrix}^t
+        \hspace{12pt}\text{con}\hspace{8pt} 1 \leq i \leq 4
+
+    \end{equation*}
+
+    Otra opción consiste en calcular la base con la ayuda de cualquier herramienta informática. En nuestro caso,
+    daremos las coordenadas de $p_i(x)$ calculadas utilizando el sistema de álgebra computacional Maxima.
+
+    \begin{flalign*}
+        p_1(x) = (
+        \frac{x_2 x_3 x_4}{((x_2-x_1)x_3-x_1 x_2+x_1^2)x_4+(x_1^2-x_1 x_2)x_3+x_1^2 x_2-x_1^3}, \\[6pt]
+        -\frac{(x_3+x_2)x_4+x_2 x_3}{((x_2-x_1)x_3-x_1 x_2+x_1^2)x_4+(x_1^2-x_1 x_2)x_3+x_1^2 x_2-x_1^3}, \\[6pt]
+        \frac{x_4+x_3+x_2}{((x_2-x_1)x_3-x_1 x_2+x_1^2)x_4+(x_1^2-x_1 x_2)x_3+x_1^2 x_2-x_1^3}, \\[6pt]
+        -\frac{1}{((x_2-x_1)x_3-x_1 x_2+x_1^2)x_4+(x_1^2-x_1 x_2)x_3+x_1^2 x_2-x_1^3}
+        )
+    \end{flalign*}
+
+    \begin{flalign*}
+        p_2(x) = (
+        -\frac{x_1 x_3 x_4}{((x_2-x_1)x_3-x_2^2 + x_1 x_2)x_4+(x_1 x_2 - x_2^2)x_3+x_2^3 - x_1 x_2^2}, \\[6pt]
+        \frac{(x_3 + x_1)x_4 + x_1 x_3}{((x_2-x_1)x_3-x_2^2 + x_1 x_2)x_4+(x_1 x_2 - x_2^2)x_3+x_2^3 - x_1 x_2^2}, \\[6pt]
+        -\frac{x_4 + x_3 + x_1}{((x_2-x_1)x_3-x_2^2 + x_1 x_2)x_4+(x_1 x_2 - x_2^2)x_3+x_2^3 - x_1 x_2^2}, \\[6pt]
+        \frac{1}{((x_2-x_1)x_3-x_2^2 + x_1 x_2)x_4+(x_1 x_2 - x_2^2)x_3+x_2^3 - x_1 x_2^2}
+        )
+    \end{flalign*}
+
+    \begin{flalign*}
+        p_3(x) = (
+        \frac{x_1 x_2 x_4}{(x_3^2 + (-x_2-x_1)x_3+x_1 x_2)x_4-x_3^3+(x_2+x_1)x_3^2 - x_1 x_2 x_3}, \\[6pt]
+        -\frac{(x_2 + x_1)x_4 + x_1 x_2}{(x_3^2 + (-x_2-x_1)x_3+x_1 x_2)x_4-x_3^3+(x_2+x_1)x_3^2 - x_1 x_2 x_3}, \\[6pt]
+        \frac{x_4 + x_2 + x_1}{(x_3^2 + (-x_2-x_1)x_3+x_1 x_2)x_4-x_3^3+(x_2+x_1)x_3^2 - x_1 x_2 x_3}, \\[6pt]
+        -\frac{1}{(x_3^2 + (-x_2-x_1)x_3+x_1 x_2)x_4-x_3^3+(x_2+x_1)x_3^2 - x_1 x_2 x_3}
+        )
+    \end{flalign*}
+
+    \begin{flalign*}
+        p_4(x) = (
+        -\frac{x_1 x_2 x_3}{x_4^3 + (-x_3-x_2-x_1) x_4^2 + ((x_2 + x_1) x_3 + x_1 x_2)x_4 - x_1 x_2 x_3}, \\[6pt]
+        \frac{(x_2 + x_1)x_3 + x_1 x_2}{x_4^3 + (-x_3-x_2-x_1) x_4^2 + ((x_2 + x_1) x_3 + x_1 x_2)x_4 - x_1 x_2 x_3}, \\[6pt]
+        -\frac{x_3 + x_2 + x_1}{x_4^3 + (-x_3-x_2-x_1) x_4^2 + ((x_2 + x_1) x_3 + x_1 x_2)x_4 - x_1 x_2 x_3}, \\[6pt]
+        \frac{1}{x_4^3 + (-x_3-x_2-x_1) x_4^2 + ((x_2 + x_1) x_3 + x_1 x_2)x_4 - x_1 x_2 x_3}
+        )
+    \end{flalign*}
+
+
+\end{itemize}
