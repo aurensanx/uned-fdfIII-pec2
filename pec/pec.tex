@@ -1,5 +1,14 @@
 \documentclass[a4paper, 12pt, addpoints]{exam}
 \usepackage{IfbaListas}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+
+\tikzset{
+    cross/.pic = {
+        \draw[ultra thick, rotate = 45] (-#1,0) -- (#1,0);
+        \draw[ultra thick, rotate = 45] (0,-#1) -- (0, #1);
+    }
+}
 
 
 \begin{document}
