@@ -9,10 +9,18 @@ dada en el intervalo $x > 0$.
 [label=(\alph*)]
     \item (0.3 puntos) Indicar si el punto $x = 0$ es un punto ordinario o un punto singular de la
     ecuación. En el caso de que sea singular, indicar si es regular o irregular.
-    \item (1 puntos) A partir de las raíces de la ecuación inicial de la ecuación diferencial en torno
+    \item (1 puntos) A partir de las raíces de la ecuación indicial de la ecuación diferencial en torno
     al punto $x = 0$, justificar por qué solo una de las dos soluciones linealmente independientes
     de la ecuación diferencial es desarrollable en serie de potencias en torno a $x = 0$. ¿Cuál es
     el radio de convergencia de dicha serie?
+    \item (1.2 puntos) Obtener la solución particular, $y = y(x)$, de la ecuación diferencial tal que es
+    desarrollable en serie de potencias en torno a $x = 0$ y satisface, además, la condición
+
+    \begin{equation*}
+        \lim_{x \rightarrow 0^+} y'(x) = 1
+    \end{equation*}
+
+    (debe darse el término general de la serie solución).
 \end{enumerate}
 
 
@@ -37,5 +45,23 @@ dada en el intervalo $x > 0$.
     son ambas analíticas en $x = 0$. De otra manera es un punto singular irregular.\\
 
     Como $p(x) = -1$ y $q(x) = 1 - x$, $x = 0$ es un punto singular regular.
+
+    \vspace{20px}
+    \item Siendo $p_0 = p(0)$ y $q_0 = q(0)$, la ecuación de índices de la ecuación diferencial es
+
+
+    \begin{equation*}
+        r(r-1) - r + 1 = 0,
+    \end{equation*}
+
+    que tiene una sola raíz doble $r = 1$.
+
+    Entonces, la solución $y(x) = x^r \sum_{n=0}^\infty c_n x^n$
+    cuenta sólo con un exponente, y de este modo puede
+    haber únicamente una solución en serie de Frobenius.\\
+
+    Ya que $p(x)$ es una constante y $q(x)$ es un polinomio, podemos asegurar que la serie solución va
+    a converger (y, por tanto, va a ser válida) para todo $x\;\epsilon\;\mathbb{R}$.
+
 
 \end{enumerate}
