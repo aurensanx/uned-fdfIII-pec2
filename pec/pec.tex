@@ -1,32 +1,20 @@
 \documentclass[a4paper, 12pt, addpoints]{exam}
 \usepackage{IfbaListas}
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.16}
-
-\tikzset{
-    cross/.pic = {
-        \draw[ultra thick, rotate = 45] (-#1,0) -- (#1,0);
-        \draw[ultra thick, rotate = 45] (0,-#1) -- (0, #1);
-    }
-}
-
 
 \begin{document}
 
     \pagestyle{fancy}
-    \fancyhead[RO]{Fundamentos de Física II, 2024}
+    \fancyhead[RO]{Métodos Matemáticos I, mayo 2024}
     \fancyhead[L]{Alberto Aurensanz Clemente}
-
 
     \input{problems/autoria}
     \vspace{20px}
-    \input{problems/c1}
-    \newpage
-
     \input{problems/p1}
     \newpage
     \input{problems/p2}
     \newpage
     \input{problems/p3}
+    \newpage
+    \input{problems/p4}
 
 \end{document}

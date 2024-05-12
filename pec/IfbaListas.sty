@@ -39,13 +39,15 @@
 \usepackage{parskip}
 \usepackage{tikz}
 \usepackage{gensymb}
+\usepackage{pgfplots}
 \cfoot{\thepage}
+\pgfplotsset{compat=1.16}
 
 %***************************************************
 \SolutionEmphasis{\color{red}}
 \usepackage{answers} % resposta no arquivo separado
 %\usepackage[nosolutionfiles]{answers} % resposta no lugar
-\renewcommand{\questionlabel}{}
+\renewcommand{\questionlabel}{\textbf{\thequestiontitle.}}
 %******************************************************
 
 \newcolumntype{x}[1]{%
