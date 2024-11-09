@@ -1,27 +1,4 @@
-\textbf{Problema 1.} (2.5 puntos) Consideremos la ecuación diferencial
-\begin{equation*}
-    \frac{d^2 y}{dx^2} - \frac{1}{x}\frac{dy}{dx} + \frac{1-x}{x^2}{y} = 0,
-\end{equation*}
-
-dada en el intervalo $x > 0$.
-
-\begin{enumerate}
-[label=(\alph*)]
-    \item (0.3 puntos) Indicar si el punto $x = 0$ es un punto ordinario o un punto singular de la
-    ecuación. En el caso de que sea singular, indicar si es regular o irregular.
-    \item (1 puntos) A partir de las raíces de la ecuación indicial de la ecuación diferencial en torno
-    al punto $x = 0$, justificar por qué solo una de las dos soluciones linealmente independientes
-    de la ecuación diferencial es desarrollable en serie de potencias en torno a $x = 0$. ¿Cuál es
-    el radio de convergencia de dicha serie?
-    \item (1.2 puntos) Obtener la solución particular, $y = y(x)$, de la ecuación diferencial tal que es
-    desarrollable en serie de potencias en torno a $x = 0$ y satisface, además, la condición
-
-    \begin{equation*}
-        \lim_{x \rightarrow 0^+} y'(x) = 1
-    \end{equation*}
-
-    (debe darse el término general de la serie solución).
-\end{enumerate}
+\textbf{1.} (3 puntos)
 
 
 \vspace{20px}
@@ -29,39 +6,101 @@ dada en el intervalo $x > 0$.
 \\
 
 \begin{enumerate}
-[label=(\alph*)]
-    \item La ecuación diferencial
-    es una ecuación lineal homogénea de segundo orden del tipo $y'' + P(x) y' + Q(x) y = 0$ y donde $P(x) = -\frac{1}{x}$
-    y $Q(x) = \frac{1-x}{x^2}$. En $x = 0$, ni $P(x)$ ni $Q(x)$ son funciones analíticas, así que $x=0$ no
-    puede ser un punto ordinario.\\
+[label=\alph*)]
+    \item Para estimar la temperatura de la superficie del Sol, consideramos el dato del enunciado que nos dice que su pico de luz
+    en el espectro visible se sitúa alrededor del color verde. Por tanto, en la Figura 1 de la radiación del cuerpo negro
+    debemos encontrar una curva de temperatura que tenga un máximo en la longitud de onda correspondiente al color verde de la luz visible.\\
 
-    Si ahora se reescribe la ecuación diferencial como
+    \begin{center}
+        \includegraphics[scale=0.45]{files/img1}
+        \captionof{figure}{Radiación del cuerpo negro}
+    \end{center}
+    \vspace{20px}
 
-    \begin{equation*}
-        y'' + \frac{p(x)}{x} y' + \frac{q(x)}{x^2} y = 0,
-    \end{equation*}
+    La curva que tiene un pico en esa longitud de onda es $T = 6000K$; por ello, esta es la temperatura
+    estimada de la superficie del Sol.
 
-    donde $p(x) = x P(x)$ y $p(x) = x^2 Q(x)$, $x = 0$ es un punto singular regular si las funciones $p(x)$ y $q(x)$
-    son ambas analíticas en $x = 0$. De otra manera es un punto singular irregular.\\
-
-    Como $p(x) = -1$ y $q(x) = 1 - x$, $x = 0$ es un punto singular regular.
+    Se nos ha pedido una estimación de la temperatura, no un cálculo exacto,
+    por lo que hemos usado la gráfica de la Figura 1, en vez de
+    utilizar la ley de Planck de la radiación del cuerpo negro y el dato de la longitud de onda para el color verde de la luz visible.
 
     \vspace{20px}
-    \item Siendo $p_0 = p(0)$ y $q_0 = q(0)$, la ecuación de índices de la ecuación diferencial es
-
+    \item En este caso, no existe una curva de temperatura para $T = 32 500 K$ en la gráfica de la radiación del cuerpo negro.
+    Debemos usar entonces la ley de Planck, que describe
+    la densidad espectral de la radiación electromagnética que emite un cuerpo negro a una temperatura dada.
 
     \begin{equation*}
-        r(r-1) - r + 1 = 0,
+        E(\lambda, T) = \frac{2hc^2}{\lambda^5} \cdot \frac{1}{e^{hc/\lambda k T} - 1}
     \end{equation*}
 
-    que tiene una sola raíz doble $r = 1$.
+    Procedemos de la siguiente manera. Derivamos la expresión anterior respecto a la longitud de onda $\lambda$, e igualamos
+    la derivada a 0, para encontrar una relación de la temperatura $T$ con la longitud de onda para la que la radiación es
+    máxima.
 
-    Entonces, la solución $y(x) = x^r \sum_{n=0}^\infty c_n x^n$
-    cuenta sólo con un exponente, y de este modo puede
-    haber únicamente una solución en serie de Frobenius.\\
+    \begin{align*}
+        \frac{\partial E(\lambda, T)}{\partial \lambda}  &= (-5) \cdot \frac{2hc^2}{\lambda^6} \cdot \frac{1}{e^{hc/\lambda k T} - 1}
+        + \frac{2hc^2}{\lambda^5} \cdot
+        \frac{(-1) e^{hc/\lambda k T} (- \frac{hc}{k T \lambda^2})}{(e^{hc/\lambda k T} - 1)^2} \\
+         &= \frac{2hc^2}{\lambda^6} \cdot \frac{1}{e^{hc/\lambda k T} - 1}
+        \biggl( -5 + \frac{hc\;e^{hc/\lambda k T}}{\lambda k T  (e^{hc/\lambda k T} - 1)} \biggr) \\
+        &= 0
+    \end{align*}
 
-    Ya que $p(x)$ es una constante y $q(x)$ es un polinomio, podemos asegurar que la serie solución va
-    a converger (y, por tanto, va a ser válida) para todo $x\;\epsilon\;\mathbb{R}$.
+    Tras eliminar los términos fuera del paréntesis, nos queda la igualdad:
+
+    \begin{equation*}
+        \frac{hc}{\lambda k T} \cdot \frac{e^{hc/\lambda k T}}{e^{hc/\lambda k T} - 1} = 5
+    \end{equation*}
+
+    Renombrando $u = \frac{hc}{\lambda k T}$,
+
+    \begin{equation*}
+        \frac{u\; e^u}{e^u -1} = 5
+    \end{equation*}
+
+    Para resolver esta ecuación, consideramos la función Lambert $W$, que resuelve ecuaciones del tipo ${y\;e^{y}=x}$.
+    Si conseguimos expresar nuestra ecuación de esta forma, podemos usar los valores calculados de la función de Lambert
+    para obtener nuestro resultado.
+
+    \begin{equation*}
+        (u-5)e^{u-5} = -5e^{-5} \hspace{10pt} \Rightarrow \hspace{10pt} u-5 = W(-5e^{-5})
+     \end{equation*}
+
+    Deshaciendo el cambio de variable anterior,
+
+    \begin{equation*}
+    \frac{hc}{\lambda k T} = 5 + W(-5e^{-5}) \hspace{10pt} \Rightarrow \hspace{10pt}  \lambda = \frac{hc}{kT(5 + W(-5e^{-5}))}
+    \end{equation*}
+
+    Ya hemos obtenido la relación que estábamos buscando entre $T$ y $\lambda$ para los picos de radiación. Ahora solo
+    nos queda sustituir los valores numéricos para obtener la longitud de onda de la radiación de la estrella del enunciado.
+    Para simplificar estos cálculos, utilizamos el siguiente código en Python:\\
+
+    \begin{verbatim}
+from scipy.constants import Planck, speed_of_light, Boltzmann
+from scipy.special import lambertw
+import math
+
+temp = 32500
+wavelength = (Planck * speed_of_light /
+          (Boltzmann * temp * (5 + lambertw(-5 * math.exp(-5)))))
+
+    \end{verbatim}
+
+    La longitud de onda obtenida es $89.2nm$. Esto sitúa a la radiación de la estrella en el tramo ultravioleta.
+    Estudiando la \href{https://astronomy.swin.edu.au/cosmos/H/Harvard+spectral+classification}{clasificación espectral estelar de Harvard},
+    nuestra estrella se situaría en la clase O para más de $28.000K$, con color violeta, lo que concuerda con los datos calculados
+    anteriormente, ya que el color violeta
+    es el que se sitúa más cerca del pico calculado, que recaía sobre la región ultravioleta.
+
+    De todos modos, el color real que se observaría si pudiésemos ver directamente esta estrella, no sería violeta, sino blanco con
+    un toque azulado / violeta, ya que la estrella no emitiría radiación solo en este rango. Algo similar sucede
+    con el ejemplo del apartado a), ya que aunque el sol tiene su pico de radiación en la zonda verde del espectro de luz visible,
+    nosotros no lo vemos de ese color, debido al resto de radiación emitida con otras longitudes de onda.
+
+
 
 
 \end{enumerate}
+
+
