@@ -1,4 +1,4 @@
-\textbf{1.} (3 puntos)
+\textbf{1.}
 
 
 \vspace{20px}
@@ -7,98 +7,83 @@
 
 \begin{enumerate}
 [label=\alph*)]
-    \item Para estimar la temperatura de la superficie del Sol, consideramos el dato del enunciado que nos dice que su pico de luz
-    en el espectro visible se sitúa alrededor del color verde. Por tanto, en la Figura 1 de la radiación del cuerpo negro,
-    debemos encontrar una curva de temperatura que tenga un máximo en la longitud de onda correspondiente al color verde de la luz visible.\\
+    \item En el instante inicial, en $t = 0$ s, el número de núcleos de RaF es 0. En ese instante solo tenemos la muestra de $5 \times 10^{-10}$ g de RaE y no
+    ha comenzado todavía la desintegración en cadena.
 
-    \begin{center}
-        \includegraphics[scale=0.45]{files/img1}
-        \captionof{figure}{Radiación del cuerpo negro}
-    \end{center}
+    Esto se puede corroborar sustituyendo $t = 0$ en la expresión del número de núcleos de RaF, de manera que obtenemos $N_F(0) = 0$.
+
+    Por otro lado, la expresión que relaciona el periodo de semidesintegración $t_{1/2}$ con la constante de desintegración $\lambda$ es:
+
+    \begin{equation*}
+        t_{1/2} = \frac{\ln 2}{\lambda}
+    \end{equation*}
+
+    El valor periodo del semidesintegración es menor para los núcleos de RaE que para los de RaF, de donde deducimos que la constante de desintegración
+    $\lambda$ es mayor para los núcleos de RaE:
+    $\lambda_{E} > \lambda_{F}$.
+
+    Por ello, del recorrido de la desintegración en cadena será el siguiente:
+
+    Primero, se desintegrarán los núcleos RaE a mayor ritmo que los núcleos RaF por dos razones: en el momento inicial la totalidad de núcleos existentes son
+    núcleos RaE y, además, la constante de desintegración es mayor para la desintegración RaE.
+
+    Cuando se hayan desintegrado suficientes núcleos RaE, llegará un momento en el que el ritmo de desintegración de RaF superará al de RaE, al haber mayor número de
+    núcleos RaF disponibles, aunque su constante de desintegración sea menor. Este es el tiempo para el cual el número de núcleos RaF será máximo y el tiempo que
+    buscamos.
+
+    Tras superar ese punto, el número de núcleos de RaF seguirá disminuyendo hasta que se aproxime a 0 para valores de tiempo muy altos.
+
+    Calcular el tiempo buscado, al que llamamos $t_{m\acute{a}x}$,
+    se traduce matemáticamente en derivar la expresión de $N_F (t)$, igualarla a 0 y resolver para $t$. Lo hacemos a continuación.
+
+    \begin{equation*}
+        \frac{d N_F (t)}{dt} = \frac{\lambda_E\, N_E^0}{\lambda_F - \lambda_E}
+        \Bigl(
+        - \lambda_E \, e^{- \lambda_E\, t}  + \lambda_F \, e^{- \lambda_F\, t}
+        \Bigr)  = 0
+    \end{equation*}
+
+    Simplificando la ecuación anterior llegamos a:
+
+    \begin{equation*}
+        \lambda_E \, e^{- \lambda_E\, t} = \lambda_F \, e^{- \lambda_F\, t},
+    \end{equation*}
+
+    que despejando $t$ y renombrándola a $t_{m\acute{a}x}$ nos da la expresión:
+
+    \begin{equation*}
+        t_{m\acute{a}x} = \frac{1}{ \lambda_E -  \lambda_F }\, \ln{\frac{\lambda_E}{\lambda_F}}
+    \end{equation*}
+
+    Operando con los valores de los periodos de semidesintegración dados en el enunciado llegamos a un resultado de $17,21$ días para el
+    tiempo en el que el número de núcleos de RaF es máximo.
+
+
     \vspace{20px}
 
-    La curva que tiene un pico en esa longitud de onda es $T = 6000K$; por ello, esta es la temperatura
-    estimada de la superficie del Sol.
+    \item Calcular el valor correspondiente para el número máximo de núcleos, $N_{Fm\acute{a}x}$, se reduce a evaluar la expresión de $N_F(t)$
+    para el valor $ t_{m\acute{a}x} $ calculado.
+    El único valor todavía desconocido de esa expresión es $N_E^0$.
 
-    Se nos ha pedido una estimación de la temperatura, no un cálculo exacto,
-    por lo que hemos usado la gráfica de la Figura 1, en vez de
-    utilizar la ley de Planck de la radiación del cuerpo negro y el dato de la longitud de onda para el color verde de la luz visible.
-
-    \vspace{20px}
-    \item En este caso, no existe una curva de temperatura para $T = 32 500 K$ en la gráfica de la radiación del cuerpo negro.
-    Debemos usar entonces la ley de Planck, que describe
-    la densidad espectral de la radiación electromagnética que emite un cuerpo negro a una temperatura dada.
+    Sabiendo la masa de la muestra y la masa atómica del elemento ($210 $ u), podemos calcular el valor buscado.
 
     \begin{equation*}
-        E(\lambda, T) = \frac{2hc^2}{\lambda^5} \cdot \frac{1}{e^{hc/\lambda k T} - 1}
+        N_E^0 = 5 \times 10 ^{-10} \text{ g} \times
+        \frac{1 \text{ Kg}}{10^3\text{ g}} \times
+        \frac{1 \text{ u}}{1,661 \times 10^{-27}\text{ Kg}} \times
+        \frac{1 \text{ núcleo}}{210 \text{ u}} = 1,433 \times 10^{12} \text{ núcleos}
     \end{equation*}
 
-    Procedemos de la siguiente manera. Derivamos la expresión anterior respecto a la longitud de onda $\lambda$, e igualamos
-    la derivada a 0, para encontrar una relación de la temperatura $T$ con la longitud de onda para la que la radiación es
-    máxima.
-
-    \begin{align*}
-        \frac{\partial E(\lambda, T)}{\partial \lambda}  &= (-5) \cdot \frac{2hc^2}{\lambda^6} \cdot \frac{1}{e^{hc/\lambda k T} - 1}
-        + \frac{2hc^2}{\lambda^5} \cdot
-        \frac{(-1) e^{hc/\lambda k T} (- \frac{hc}{k T \lambda^2})}{(e^{hc/\lambda k T} - 1)^2} \\
-        &= \frac{2hc^2}{\lambda^6} \cdot \frac{1}{e^{hc/\lambda k T} - 1}
-        \biggl( -5 + \frac{hc\;e^{hc/\lambda k T}}{\lambda k T  (e^{hc/\lambda k T} - 1)} \biggr) \\
-        &= 0
-    \end{align*}
-
-    Tras eliminar los términos fuera del paréntesis, nos queda la igualdad:
+    Con este resultado, calculamos $N_{Fm\acute{a}x}$.
 
     \begin{equation*}
-        \frac{hc}{\lambda k T} \cdot \frac{e^{hc/\lambda k T}}{e^{hc/\lambda k T} - 1} = 5
+        N_{Fm\acute{a}x} = N_E^0 \times \frac{\frac{\ln{2}}{5 \text{ días}}}{\frac{\ln{2}}{138 \text{ días}} - \frac{\ln{2}}{5 \text{ días}}} \times
+        \Bigl(
+        e^{-   \frac{17,21}{5} \ln2} - e^{-\frac{17,21}{138} \ln2}
+        \Bigr)  = 1,227 \times 10 ^{12} \text{ núcleos}
     \end{equation*}
 
-    Renombrando $u = \frac{hc}{\lambda k T}$,
-
-    \begin{equation*}
-        \frac{u\; e^u}{e^u -1} = 5
-    \end{equation*}
-
-    Para resolver esta ecuación, consideramos la función Lambert $W$, que resuelve ecuaciones del tipo ${y\;e^{y}=x}$.
-    Si conseguimos expresar nuestra ecuación de esta forma, podemos usar los valores calculados de la función de Lambert
-    para obtener nuestro resultado.
-
-    \begin{equation*}
-    (u-5)
-        e^{u-5} = -5e^{-5} \hspace{10pt} \Rightarrow \hspace{10pt} u-5 = W(-5e^{-5})
-    \end{equation*}
-
-    Deshaciendo el cambio de variable anterior,
-
-    \begin{equation*}
-        \frac{hc}{\lambda k T} = 5 + W(-5e^{-5}) \hspace{10pt} \Rightarrow \hspace{10pt}  \lambda = \frac{hc}{kT(5 + W(-5e^{-5}))}
-    \end{equation*}
-
-    Ya hemos obtenido la relación que estábamos buscando entre $T$ y $\lambda$ para los picos de radiación. Ahora solo
-    nos queda sustituir los valores numéricos para obtener la longitud de onda de la radiación de la estrella del enunciado.
-    Para simplificar estos cálculos, utilizamos el siguiente código en Python:\\
-
-    \begin{verbatim}
-from scipy.constants import Planck, speed_of_light, Boltzmann
-from scipy.special import lambertw
-import math
-
-temp = 32500
-wavelength = (Planck * speed_of_light /
-          (Boltzmann * temp * (5 + lambertw(-5 * math.exp(-5)))))
-
-    \end{verbatim}
-
-    La longitud de onda obtenida es $89,2nm$. Esto sitúa a la radiación de la estrella en el tramo ultravioleta.
-    Estudiando la \href{https://astronomy.swin.edu.au/cosmos/H/Harvard+spectral+classification}{clasificación espectral estelar de Harvard},
-    nuestra estrella se situaría en la clase O para más de $28.000K$, con color violeta, lo que concuerda con los datos calculados
-    anteriormente, ya que el color violeta
-    es el que se sitúa más cerca del pico calculado, que recaía sobre la región ultravioleta.
-
-    De todos modos, el color real que se observaría si pudiésemos ver directamente esta estrella, no sería violeta, sino blanco con
-    un toque azulado / violeta, ya que la estrella no emitiría radiación solo en este rango. Algo similar sucede
-    con el ejemplo del apartado a), ya que aunque el sol tiene su pico de radiación en la zona verde del espectro de luz visible,
-    nosotros no lo vemos de ese color, debido al resto de radiación emitida con otras longitudes de onda.
-
+    Este resultado es, evidentemente, menor que $N_E^0$.
 
 \end{enumerate}
 
